@@ -1,0 +1,145 @@
+{
+	"info": {
+		"_postman_id": "11c22d46-b8ac-43f4-8933-7558d111fcc7",
+		"name": "ServerOAuth",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34768568"
+	},
+	"item": [
+		{
+			"name": "GenerarToken",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "secret",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "client",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "Luis",
+							"type": "text"
+						},
+						{
+							"key": "secret_id",
+							"value": "$2y$10$GOJXtyX9jpx.PxBsFIbmzuY6qPLYXew7rExSaMSw4/dFg6qFj5cHG",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:9090/oauth2/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Api Publica",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/public",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"public"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Api Privada",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiI3MjcyZmQxOC0wNTdhLTQxYTgtOTRiZC00ZDExODUxNDBjNDkiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjbGllbnQiLCJhdWQiOiJjbGllbnQiLCJuYmYiOjE3Mjk1NzYwNDQsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6OTA5MCIsImV4cCI6MTcyOTU3Nzg0NCwiaWF0IjoxNzI5NTc2MDQ0LCJqdGkiOiJmYzBkMzMxZS04MTQxLTRkMzctYTE2MS0xNDU2OWIzNTU4N2QifQ.pOPgkhouE-bma2cjxzksiCWw77C5waH5Ei9dv_0LatVKHQIEj0nLdReSc3wm14je6bDySn9OsUQ6-2-4m316Cu_AqWQ8jBeKPqpQOb55sV8gZKH0c3HRb80Yh21NTZoWzp_yHJ03czgjEAp2DbIpEM7eRHgZWdSpUFC5xaPswo5D7qAmxivt22VqkpEDJo0ZnQINBmRi25fMHUdLyQzeMXk0g19R6hzfzuf32vMqU5ihA9hLd5k6Wo0O2pkfmf09P6C69v2_1rnXn9R9cOWHMPv0SoqHUmMmr3a21eRrK6ey2zFmC-h9G04K6J3RD7ape8YuTom93ZmsiTy1Yb6bjQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/private",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"private"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Administradores",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiI3MjcyZmQxOC0wNTdhLTQxYTgtOTRiZC00ZDExODUxNDBjNDkiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjbGllbnQiLCJhdWQiOiJjbGllbnQiLCJuYmYiOjE3Mjk1NzY0ODcsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6OTA5MCIsImV4cCI6MTcyOTU3ODI4NywiaWF0IjoxNzI5NTc2NDg3LCJqdGkiOiIxOTUwNWM2ZS04NWU0LTQ2NGItOWRhZS1lMWI3ODcyMTY0ZWYifQ.k_XoRVHzjZOFKYX8UfGOKncIYHjjyqM51rfCiTxh49bU_d-q7fHd9xW7qdwq962opy9Dx_23e9-_Vu2p14uCcW4AMt-UdQRpc-lI6lFWajSzmssCgllP2en6Rh8WKQ9KFaD20lhzEZsGBO8WSicBX-uhP9rj9WMFLRnRbqH5HPQBmsyncPu9IddxYgrgdjaj2zzrSSHGarIiEXJvXK2q-W5wG-OvOcXCVcO9wUUwLeGM2FKI-H_jHtbrBDHPck72MXndAfgw0o88uu-cVt6YFFx9KqDPGPOOS6HvrK_oM_1NaPKeFjNsJbqw69zs2BmoCXgBP82-C458TIOC-RAYzw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/admin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"admin"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
